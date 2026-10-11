@@ -23,8 +23,8 @@ namespace Pingprovements
             InteractablePingLifetime = config.Bind(
                 "Durations",
                 "InteractablePingLifetime",
-                30,
-                "Time in seconds how long a ping indicator for interactables should be shown on the map"
+                0,
+                "Time in seconds how long a ping indicator for interactables should be shown on the map, 0 means it never expires"
             );
 
             DefaultPingColorConfig = config.Bind(

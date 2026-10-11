@@ -82,7 +82,7 @@ namespace Pingprovements
             ShopTerminalBehavior shopTerminal = gameObject.GetComponent<ShopTerminalBehavior>();
             if (shopTerminal)
             {
-                PickupIndex pickupIndex = shopTerminal.CurrentPickupIndex();
+                PickupIndex pickupIndex = shopTerminal.CurrentPickup().pickupIndex;
                 PickupDef pickup = PickupCatalog.GetPickupDef(pickupIndex);
 
                 if (pickup != null)
@@ -94,7 +94,7 @@ namespace Pingprovements
             GenericPickupController pickupController = gameObject.GetComponent<GenericPickupController>();
             if (pickupController)
             {
-                PickupDef pickup = PickupCatalog.GetPickupDef(pickupController.pickupIndex);
+                PickupDef pickup = PickupCatalog.GetPickupDef(pickupController.pickup.pickupIndex);
                 
                 if (pickup != null)
                 {
@@ -112,7 +112,7 @@ namespace Pingprovements
             PickupIndexNetworker pickupIndexNetworker = gameObject.GetComponent<PickupIndexNetworker>();
             if (pickupIndexNetworker)
             {
-                PickupDef pickup = PickupCatalog.GetPickupDef(pickupIndexNetworker.NetworkpickupIndex);
+                PickupDef pickup = PickupCatalog.GetPickupDef(pickupIndexNetworker.NetworkpickupState.pickupIndex);
                 
                 if (pickup != null)
                 {

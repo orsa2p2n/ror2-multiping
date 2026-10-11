@@ -18,7 +18,7 @@ namespace Pingprovements
             GenericPickupController pickupController = pingIndicator.pingTarget.GetComponent<GenericPickupController>();
             if (pickupController && _config.ShowItemNotification.Value)
             {
-                BuildNotification(pickupController.pickupIndex, pingIndicator);
+                BuildNotification(pickupController.pickup.pickupIndex, pingIndicator);
             }
 
             PurchaseInteraction purchaseInteraction = pingIndicator.pingTarget.GetComponent<PurchaseInteraction>();
@@ -27,7 +27,7 @@ namespace Pingprovements
                 ShopTerminalBehavior shopTerminalBehavior = purchaseInteraction.GetComponent<ShopTerminalBehavior>();
                 if (shopTerminalBehavior && !shopTerminalBehavior.pickupIndexIsHidden)
                 {
-                    BuildNotification(shopTerminalBehavior.CurrentPickupIndex(), pingIndicator);
+                    BuildNotification(shopTerminalBehavior.CurrentPickup().pickupIndex, pingIndicator);
                 }
             }
         }

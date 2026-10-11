@@ -98,6 +98,8 @@ namespace Pingprovements
             pingIndicator.pingOrigin = newPingInfo.origin;
             pingIndicator.pingNormal = newPingInfo.normal;
             pingIndicator.pingTarget = newPingInfo.targetGameObject;
+            pingIndicator.weakPointTarget = newPingInfo.weakPointObject;
+            pingIndicator.forceUseHitOriginForPosition = newPingInfo.forceUseHitOriginForPosition;
 
             pingIndicator.RebuildPing();
             
@@ -137,6 +139,11 @@ namespace Pingprovements
                 case RoR2.UI.PingIndicator.PingType.Interactable:
                     fixedTimer = _config.InteractablePingLifetime.Value;
                     break;
+            }
+
+            if (fixedTimer <= 0f)
+            {
+                fixedTimer = float.PositiveInfinity;
             }
 
             pingIndicator.SetObjectValue("fixedTimer", fixedTimer);

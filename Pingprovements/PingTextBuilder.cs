@@ -52,7 +52,7 @@ namespace Pingprovements
             if (shopTerminal && _config.ShowShopText.Value)
             {
                 string text = textStart;
-                PickupIndex pickupIndex = shopTerminal.CurrentPickupIndex();
+                PickupIndex pickupIndex = shopTerminal.CurrentPickup().pickupIndex;
                 PickupDef pickup = PickupCatalog.GetPickupDef(pickupIndex);
                 text += shopTerminal.pickupIndexIsHidden
                     ? "?"
@@ -64,7 +64,7 @@ namespace Pingprovements
             GenericPickupController pickupController = pingIndicator.pingTarget.GetComponent<GenericPickupController>();
             if (pickupController && _config.ShowPickupText.Value)
             {
-                PickupDef pickup = PickupCatalog.GetPickupDef(pickupController.pickupIndex);
+                PickupDef pickup = PickupCatalog.GetPickupDef(pickupController.pickup.pickupIndex);
                 pingIndicator.pingText.text += $"{textStart}{Language.GetString(pickup.nameToken)}";
             }
 
