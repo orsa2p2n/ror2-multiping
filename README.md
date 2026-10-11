@@ -4,8 +4,6 @@ Risk of Rain 2 mod that adds the ability to have multiple (permanent) pings per 
 
 This mod started as a fork of [Pingprovements](https://github.com/pixeldesu/Cloudburst), but has since become its own project.
 
-Download on [Thunderstore]().
-
 ## Features
 
 - Multiple pings by the same player
