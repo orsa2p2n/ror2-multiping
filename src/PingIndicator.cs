@@ -1,16 +1,16 @@
 ﻿using RoR2;
 using UnityEngine;
 
-namespace Pingprovements
+namespace Multiping
 {
     public class PingIndicator
     {
         /// <summary>
         /// Configuration instance
         /// </summary>
-        private static PingprovementsConfig _config;
+        private static MultipingConfig _config;
         
-        public PingIndicator(Pingprovements plugin)
+        public PingIndicator(Multiping plugin)
         {
             _config = plugin.GetConfig();
         }

@@ -1,18 +1,19 @@
-# Pingprovements
+# Multiping
 
-A mod that improves pings in Risk of Rain 2 in several different ways.
+Risk of Rain 2 mod that adds the ability to have multiple (permanent) pings per player.
 
-All credits for the original mod goes to [pixeldesu](https://github.com/pixeldesu/Cloudburst).
+This mod started as a fork of [Pingprovements](https://github.com/pixeldesu/Cloudburst), but has since become its own project.
 
-Credits for the original compatibility with the Survivors of the Void DLC goes to [radiden](https://github.com/radiden/pingprovements).
+Download on [Thunderstore]().
 
 ## Features
 
-- Allows multiple pings by the same player
-- Colors pings by the tier of the target
-- Configurable lifetimes for all ping types
-- Configurable colors for all ping types
-- Show labels for ping targets (instead of just chat messages)
-- Show the distance to pings
-- Show a notification on item pings containing the item description (like pickup notifications) if the item has already been discovered
-- Hide offscreen ping labels
+- Multiple pings by the same player
+- Customizable duration per ping type (including infinite!)
+- Re-pinging an item removes the ping
+- Custom color per ping type and tier
+- Toggleable additional information such as distance, item name, cost, etc.
+
+## Recommendations
+
+We highly recommend using this mod with [Wolfo Quality of Life](https://thunderstore.io/c/riskofrain2/p/Wolfo/WolfoQualityOfLife/) for additional ping icons.

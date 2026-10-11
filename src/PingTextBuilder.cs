@@ -2,13 +2,13 @@
 using RoR2;
 using UnityEngine;
 
-namespace Pingprovements
+namespace Multiping
 {
     public class PingTextBuilder
     {
-        private static PingprovementsConfig _config;
+        private static MultipingConfig _config;
 
-        public PingTextBuilder(PingprovementsConfig config)
+        public PingTextBuilder(MultipingConfig config)
         {
             _config = config;
         }

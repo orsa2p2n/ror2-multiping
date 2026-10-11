@@ -1,10 +1,10 @@
 ﻿using BepInEx.Configuration;
 
-namespace Pingprovements
+namespace Multiping
 {
-    public class PingprovementsConfig
+    public class MultipingConfig
     {
-        public PingprovementsConfig(ConfigFile config)
+        public MultipingConfig(ConfigFile config)
         {
             DefaultPingLifetime = config.Bind(
                 "Durations",

@@ -1,27 +1,27 @@
 ﻿using BepInEx;
 using UnityEngine.SceneManagement;
 
-namespace Pingprovements
+namespace Multiping
 {
-    [BepInPlugin("com.pixeldesu.pingprovements", "Pingprovements", "1.7.0")]
-    public class Pingprovements : BaseUnityPlugin
+    [BepInPlugin("com.orsa.multiping", "Multiping", "1.0.0")]
+    public class Multiping : BaseUnityPlugin
     {
         #region Private Fields
 
         /// <summary>
         /// Configuration instance
         /// </summary>
-        private static PingprovementsConfig _config;
+        private static MultipingConfig _config;
 
         #endregion
 
-        public PingprovementsConfig GetConfig() => _config;
+        public MultipingConfig GetConfig() => _config;
 
         #region Configuration and Startup
 
-        public Pingprovements()
+        public Multiping()
         {
-            _config = new PingprovementsConfig(Config);
+            _config = new MultipingConfig(Config);
         }
 
         public void Awake()

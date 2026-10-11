@@ -6,14 +6,14 @@ using System.Linq;
 using System.Text;
 using RoR2.UI;
 
-namespace Pingprovements
+namespace Multiping
 {
     class PingerController
     {
         /// <summary>
         /// Configuration instance
         /// </summary>
-        private static PingprovementsConfig _config;
+        private static MultipingConfig _config;
 
         /// <summary>
         /// Color instances used for the <see cref="PingIndicator"/>s
@@ -41,7 +41,7 @@ namespace Pingprovements
         /// </summary>
         private static PingNotificationBuilder _notificationBuilder;
 
-        public PingerController(Pingprovements plugin)
+        public PingerController(Multiping plugin)
         {
             _config = plugin.GetConfig();
             _painter = new PingPainter(_config);

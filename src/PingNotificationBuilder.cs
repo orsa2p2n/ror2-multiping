@@ -2,13 +2,13 @@
 using RoR2.UI;
 using UnityEngine;
 
-namespace Pingprovements
+namespace Multiping
 {
     public class PingNotificationBuilder
     {
-        private PingprovementsConfig _config;
+        private MultipingConfig _config;
 
-        public PingNotificationBuilder(PingprovementsConfig config)
+        public PingNotificationBuilder(MultipingConfig config)
         {
             _config = config;
         }

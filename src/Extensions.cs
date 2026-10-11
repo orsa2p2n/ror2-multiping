@@ -2,7 +2,7 @@
 using System.Reflection;
 using UnityEngine;
 
-namespace Pingprovements
+namespace Multiping
 {
     public static class Extensions
     {

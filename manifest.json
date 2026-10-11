@@ -1,7 +1,7 @@
 {
-  "name": "Pingprovements",
-  "version_number": "1.7.0",
-  "website_url": "https://github.com/pixeldesu/Cloudburst",
-  "description": "Several improvements to Pings, like multiple pings and adjustable timers or colors per type",
-  "dependencies": ["bbepis-BepInExPack-5.3.0"]
+  "name": "Multiping",
+  "version_number": "1.0.0",
+  "website_url": "https://github.com/orsa2p2n/ror2-multiping",
+  "description": "Multiple pings per player, permanent pings, optional additional info on pings, etc. Based on the deprecated \"Pingprovements\".",
+  "dependencies": ["bbepis-BepInExPack-5.4.0"]
 }

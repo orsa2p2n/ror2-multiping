@@ -2,7 +2,7 @@
 using RoR2;
 using UnityEngine;
 
-namespace Pingprovements
+namespace Multiping
 {
     public class PingPainter
     {
@@ -16,7 +16,7 @@ namespace Pingprovements
         /// </summary>
         private readonly bool _tieredInteractablePingColor;
 
-        public PingPainter(PingprovementsConfig config)
+        public PingPainter(MultipingConfig config)
         {
             _colors.Add("DefaultPingColor", config.DefaultPingColorConfig.Value.ToColor());
             _colors.Add("DefaultPingSpriteColor", config.DefaultPingSpriteColorConfig.Value.ToColor());
