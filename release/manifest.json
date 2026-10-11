@@ -3,5 +3,5 @@
   "version_number": "1.0.0",
   "website_url": "https://github.com/orsa2p2n/ror2-multiping",
   "description": "Multiple pings per player, permanent pings, optional additional info on pings, etc. Based on the deprecated \"Pingprovements\".",
-  "dependencies": ["bbepis-BepInExPack-5.4.0"]
+  "dependencies": ["bbepis-BepInExPack-5.3.0"]
 }

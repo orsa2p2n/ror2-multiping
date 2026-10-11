@@ -10,14 +10,14 @@ namespace Multiping
                 "Durations",
                 "DefaultPingLifetime",
                 6,
-                "Time in seconds how long a regular 'walk to' ping indicator should be shown on the map"
+                "Time in seconds how long a regular 'walk to' ping indicator should be shown on the map, 0 means it never expires"
             );
 
             EnemyPingLifetime = config.Bind(
                 "Durations",
                 "EnemyPingLifetime",
-                8,
-                "Time in seconds how long a ping indicator for enemies should be shown on the map"
+                30,
+                "Time in seconds how long a ping indicator for enemies should be shown on the map, 0 means it never expires"
             );
 
             InteractablePingLifetime = config.Bind(
@@ -30,43 +30,43 @@ namespace Multiping
             DefaultPingColorConfig = config.Bind(
                 "Colors",
                 "DefaultPingColor",
-                "0.525,0.961,0.486,1.000",
-                "Color of the default ping, in UnityEngine.Color R/G/B/A Float format"
+                "#86F57C",
+                "Color of the default ping"
             );
 
             DefaultPingSpriteColorConfig = config.Bind(
                 "SpriteColors",
                 "DefaultPingSpriteColor",
-                "0.527,0.962,0.486,1.000",
-                "Color of the default ping sprite, in UnityEngine.Color R/G/B/A Float format"
+                "#86F57C",
+                "Color of the default ping sprite"
             );
 
             EnemyPingColorConfig = config.Bind(
                 "Colors",
                 "EnemyPingColor",
-                "0.820,0.122,0.122,1.000",
-                "Color of the enemy ping, in UnityEngine.Color R/G/B/A Float format"
+                "#D11F1F",
+                "Color of the enemy ping"
             );
 
             EnemyPingSpriteColorConfig = config.Bind(
                 "SpriteColors",
                 "EnemyPingSpriteColor",
-                "0.821,0.120,0.120,1.000",
-                "Color of the enemy ping sprite, in UnityEngine.Color R/G/B/A Float format"
+                "#D11F1F",
+                "Color of the enemy ping sprite"
             );
 
             InteractablePingColorConfig = config.Bind(
                 "Colors",
                 "InteractablePingColor",
-                "0.886,0.871,0.173,1.000",
-                "Color of the interactable ping, in UnityEngine.Color R/G/B/A Float format"
+                "#E2DE2C",
+                "Color of the interactable ping"
             );
 
             InteractablePingSpriteColorConfig = config.Bind(
                 "SpriteColors",
                 "InteractablePingSpriteColor",
-                "0.887,0.870,0.172,1.000",
-                "Color of the interactable ping sprite, in UnityEngine.Color R/G/B/A Float format"
+                "#E2DE2C",
+                "Color of the interactable ping sprite"
             );
 
             ShowPickupText = config.Bind(
@@ -79,14 +79,14 @@ namespace Multiping
             ShowChestText = config.Bind(
                 "ShowPingText",
                 "Chests",
-                true,
+                false,
                 "Shows item names and cost on chest pings"
             );
 
             ShowShopText = config.Bind(
                 "ShowPingText",
                 "ShopTerminals",
-                true,
+                false,
                 "Shows item names and cost on shop terminal pings"
             );
 
@@ -100,21 +100,21 @@ namespace Multiping
             ShowShrineText = config.Bind(
                 "ShowPingText",
                 "Shrines",
-                true,
+                false,
                 "Shows shrine type on shrine pings"
             );
             
             ShowEnemyText = config.Bind(
                 "ShowPingText",
                 "Enemies",
-                true,
+                false,
                 "Shows names on enemy pings"
             );
 
             ShowPingDistance = config.Bind(
                 "ShowPingText",
                 "Distance",
-                true,
+                false,
                 "Show distance to ping in ping label"
             );
 

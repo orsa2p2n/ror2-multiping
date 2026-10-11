@@ -6,28 +6,22 @@ namespace Multiping
     [BepInPlugin("com.orsa.multiping", "Multiping", "1.0.0")]
     public class Multiping : BaseUnityPlugin
     {
-        #region Private Fields
-
-        /// <summary>
-        /// Configuration instance
-        /// </summary>
         private static MultipingConfig _config;
+        public static MultipingConfig GetConfig() => _config;
 
-        #endregion
-
-        public MultipingConfig GetConfig() => _config;
-
-        #region Configuration and Startup
-
+        public string test;
+        
         public Multiping()
         {
             _config = new MultipingConfig(Config);
+            test = "";
+            print(test);
         }
 
         public void Awake()
         {
-            PingIndicator pingIndicator = new PingIndicator(this);
-            PingerController pingerController = new PingerController(this);
+            var pingIndicator = new PingIndicator(this);
+            var pingerController = new PingerController(this);
 
             On.RoR2.PingerController.SetCurrentPing += pingerController.SetCurrentPing;
             On.RoR2.PingerController.AttemptPing += pingerController.AttemptPing;
@@ -36,7 +30,5 @@ namespace Multiping
 
             SceneManager.sceneUnloaded += pingerController.OnSceneUnloaded;
         }
-
-        #endregion
     }
 }

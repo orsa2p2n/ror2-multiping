@@ -12,7 +12,7 @@ namespace Multiping
         
         public PingIndicator(Multiping plugin)
         {
-            _config = plugin.GetConfig();
+            _config = Multiping.GetConfig();
         }
 
         public void Update(On.RoR2.UI.PingIndicator.orig_Update orig, RoR2.UI.PingIndicator self)

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using UnityEngine;
 
 namespace Multiping
@@ -20,10 +19,9 @@ namespace Multiping
         
         public static Color ToColor(this string colorString)
         {
-            float[] colorValues = Array.ConvertAll(colorString.Split(','), 
-                                                  str => float.Parse(str, System.Globalization.CultureInfo.InvariantCulture));
+            ColorUtility.TryParseHtmlString(colorString, out Color color);
 
-            return new Color(colorValues[0], colorValues[1], colorValues[2], colorValues[3]);
+            return color;
         }
         
         public static bool IsObjectVisible(this Camera camera, Transform targetObjectTransform)

@@ -43,7 +43,7 @@ namespace Multiping
 
         public PingerController(Multiping plugin)
         {
-            _config = plugin.GetConfig();
+            _config = Multiping.GetConfig();
             _painter = new PingPainter(_config);
             _textBuilder = new PingTextBuilder(_config);
             _notificationBuilder = new PingNotificationBuilder(_config);
