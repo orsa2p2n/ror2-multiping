@@ -18,17 +18,30 @@ namespace Multiping
             print(test);
         }
 
+        private PingIndicator _pingIndicator;
+        private PingerController _pingerController;
+
         public void Awake()
         {
-            var pingIndicator = new PingIndicator(this);
-            var pingerController = new PingerController(this);
+            _pingIndicator = new PingIndicator(this);
+            _pingerController = new PingerController(this);
 
-            On.RoR2.PingerController.SetCurrentPing += pingerController.SetCurrentPing;
-            On.RoR2.PingerController.AttemptPing += pingerController.AttemptPing;
+            On.RoR2.PingerController.SetCurrentPing += _pingerController.SetCurrentPing;
+            On.RoR2.PingerController.AttemptPing += _pingerController.AttemptPing;
 
-            On.RoR2.UI.PingIndicator.Update += pingIndicator.Update;
+            On.RoR2.UI.PingIndicator.Update += _pingIndicator.Update;
 
-            SceneManager.sceneUnloaded += pingerController.OnSceneUnloaded;
+            SceneManager.sceneUnloaded += _pingerController.OnSceneUnloaded;
+        }
+
+        public void OnDestroy()
+        {
+            On.RoR2.PingerController.SetCurrentPing -= _pingerController.SetCurrentPing;
+            On.RoR2.PingerController.AttemptPing -= _pingerController.AttemptPing;
+
+            On.RoR2.UI.PingIndicator.Update -= _pingIndicator.Update;
+
+            SceneManager.sceneUnloaded -= _pingerController.OnSceneUnloaded;
         }
     }
 }
