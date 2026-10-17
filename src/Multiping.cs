@@ -1,47 +1,41 @@
 ﻿using BepInEx;
 using UnityEngine.SceneManagement;
 
-namespace Multiping
+namespace Multiping;
+
+[BepInPlugin("com.orsa.multiping", "Multiping", "1.0.0")]
+public class Multiping : BaseUnityPlugin
 {
-    [BepInPlugin("com.orsa.multiping", "Multiping", "1.0.0")]
-    public class Multiping : BaseUnityPlugin
-    {
-        private static MultipingConfig _config;
-        public static MultipingConfig GetConfig() => _config;
-
-        public string test;
+    private readonly MultipingConfig _config;
+    public MultipingConfig GetConfig() => _config;
         
-        public Multiping()
-        {
-            _config = new MultipingConfig(Config);
-            test = "";
-            print(test);
-        }
+    private readonly PingIndicatorManager _pingIndicatorManager;
+    private readonly PingerControllerManager _pingerControllerManager;
+        
+    public Multiping()
+    {
+        _config = new MultipingConfig(Config);
+        _pingIndicatorManager = new PingIndicatorManager(this);
+        _pingerControllerManager = new PingerControllerManager(this);
+    }
 
-        private PingIndicator _pingIndicator;
-        private PingerController _pingerController;
+    public void Awake()
+    {
+        On.RoR2.PingerController.SetCurrentPing += _pingerControllerManager.On_PingerController_SetCurrentPing;
+        On.RoR2.PingerController.AttemptPing += _pingerControllerManager.On_PingerController_AttemptPing;
 
-        public void Awake()
-        {
-            _pingIndicator = new PingIndicator(this);
-            _pingerController = new PingerController(this);
+        On.RoR2.UI.PingIndicator.Update += _pingIndicatorManager.On_PingIndicator_Update;
 
-            On.RoR2.PingerController.SetCurrentPing += _pingerController.SetCurrentPing;
-            On.RoR2.PingerController.AttemptPing += _pingerController.AttemptPing;
+        SceneManager.sceneUnloaded += _pingerControllerManager.OnSceneUnloaded;
+    }
 
-            On.RoR2.UI.PingIndicator.Update += _pingIndicator.Update;
+    public void OnDestroy()
+    {
+        On.RoR2.PingerController.SetCurrentPing -= _pingerControllerManager.On_PingerController_SetCurrentPing;
+        On.RoR2.PingerController.AttemptPing -= _pingerControllerManager.On_PingerController_AttemptPing;
 
-            SceneManager.sceneUnloaded += _pingerController.OnSceneUnloaded;
-        }
+        On.RoR2.UI.PingIndicator.Update -= _pingIndicatorManager.On_PingIndicator_Update;
 
-        public void OnDestroy()
-        {
-            On.RoR2.PingerController.SetCurrentPing -= _pingerController.SetCurrentPing;
-            On.RoR2.PingerController.AttemptPing -= _pingerController.AttemptPing;
-
-            On.RoR2.UI.PingIndicator.Update -= _pingIndicator.Update;
-
-            SceneManager.sceneUnloaded -= _pingerController.OnSceneUnloaded;
-        }
+        SceneManager.sceneUnloaded -= _pingerControllerManager.OnSceneUnloaded;
     }
 }

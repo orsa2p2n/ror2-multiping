@@ -1,31 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <LangVersion>preview</LangVersion>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>preview</LangVersion>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="libs/**" />
-    <EmbeddedResource Remove="libs/**" />
-    <None Remove="libs/**" />
-    <None Include=".run\start-ror2.ps1" />
-    <None Include="multiping.slnx" />
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="libs/**"/>
+        <EmbeddedResource Remove="libs/**"/>
+        <None Remove="libs/**"/>
+        <None Include=".run\start-ror2.ps1"/>
+        <None Include="multiping.slnx"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="BepInEx.Analyzers" Version="1.0.*">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="BepInEx.Core" Version="5.*" />
-    <PackageReference Include="R2API.Items" Version="1.0.*" />
-    <PackageReference Include="R2API.Language" Version="1.0.*" />
-    <PackageReference Include="RiskOfRain2.GameLibs" Version="1.5.0-r.1" />
-    <PackageReference Include="UnityEngine.Modules" Version="2021.3.45" />
-    <PackageReference Include="MMHOOK.RoR2" Version="2026.10.8">
-      <NoWarn>NU1701</NoWarn>
-    </PackageReference>
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3" PrivateAssets="all" />
+        <PackageReference Include="BepInEx.Analyzers" Version="1.0.*">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="BepInEx.Core" Version="5.*"/>
+        <PackageReference Include="R2API.Items" Version="1.0.*"/>
+        <PackageReference Include="R2API.Language" Version="1.0.*"/>
+        <PackageReference Include="UnityEngine.Modules" Version="2021.3.45"/>
+        <PackageReference Include="MMHOOK.RoR2" Version="2026.10.8">
+            <NoWarn>NU1701</NoWarn>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="RoR2" Publicize="true" >
+            <HintPath>lib/RoR2.dll</HintPath>
+        </Reference>
+    </ItemGroup>
 </Project>

@@ -1,38 +1,21 @@
 ﻿using System.Reflection;
 using UnityEngine;
 
-namespace Multiping
+namespace Multiping;
+
+public static class Extensions
 {
-    public static class Extensions
+    public static Color ToColor(this string colorString)
     {
-        public static void SetObjectValue(this object obj, string fieldName, object value)
-        {
-            obj.GetType()
-                .GetField(fieldName, BindingFlags.NonPublic | BindingFlags.Instance)
-                .SetValue(obj, value);
-        }
+        ColorUtility.TryParseHtmlString(colorString, out Color color);
 
-        public static T GetObjectValue<T>(this object obj, string fieldName) =>
-            (T) obj.GetType()
-                .GetField(fieldName, BindingFlags.NonPublic | BindingFlags.Instance)
-                .GetValue(obj);
+        return color;
+    }
         
-        public static Color ToColor(this string colorString)
-        {
-            ColorUtility.TryParseHtmlString(colorString, out Color color);
+    public static bool IsObjectVisible(this Camera camera, Transform targetObjectTransform)
+    {
+        Vector3 viewPos = camera.WorldToViewportPoint(targetObjectTransform.position);
 
-            return color;
-        }
-        
-        public static bool IsObjectVisible(this Camera camera, Transform targetObjectTransform)
-        {
-            Vector3 viewPos = camera.WorldToViewportPoint(targetObjectTransform.position);
-            if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
-            {
-                return true;
-            }
-
-            return false;
-        }
+        return ((viewPos.x is >= 0 and <= 1) && (viewPos.y is >= 0 and <= 1) && viewPos.z > 0);
     }
 }

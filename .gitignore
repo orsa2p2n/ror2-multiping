@@ -4,6 +4,10 @@
 *.binlog
 *.log
 
+# Libs
+lib/**
+!lib/.gitkeep
+
 # Visual Studio
 .vs/
 *.suo
